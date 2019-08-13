@@ -79,7 +79,9 @@ function removeAt(array, position) {
     array[index] = currentValue;
   }
 
+
   array.length--;
+  console.log('after remove loop', array);
 
   return value;
 }
@@ -88,7 +90,7 @@ function removeAt(array, position) {
 var minArr = [89, 10, 1, 2, 3, 4, 45, 6, 7, -9, 8];
 
 console.log(removeAt(array, 4));
-
+console.log('remove at complete', array);
 
 function min2Front(array) {
   var minPosition = 1;
