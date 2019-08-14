@@ -158,6 +158,72 @@ class List {
 
     return this;
   }
+
+  /**
+   * Max
+   Create function max(node) to return list’s largest val.
+   */
+
+   max(){
+     let max = this.head.value
+     let runner = this.head
+     while(runner){
+        if (max < runner.value){
+          max = runner.value
+        }
+        runner = runner.next
+     }
+     return max
+   }
+
+
+
+  /**
+   * Min
+   Create function min(node) to return list’s largest val.
+   */
+
+
+
+
+
+
+
+  /**
+   * Avg
+   Create function avg(node) to return list’s largest val.
+   */
+   
+   avg(){
+     let runner=this.head
+     let sum = 0
+     while(runner){
+       sum+=runner.value
+       runner = runner.next
+     }
+
+
+     return sum/this.length()
+   }
+
+
+
+  
+   /** 
+   * SList: Back
+   Create a function that accepts a ListNode pointer and returns the last value in the list.
+  */
+
+  back(){
+    let runner = this.head
+    while(runner.next){
+      runner = runner.next
+    }
+    return runner.value
+  }
+
+  
+  
 }
 
 const list = new List();
@@ -171,13 +237,15 @@ list
   .addFront(9)
   .addFront(-1);
 
-console.log('contains -1', list.contains(-1));
-console.log('length is ' + list.length());
-// .removeFront();
-// list.head = node;
-list.display();
-list.removeFront();
-console.log(list.front());
 
-console.log('contains -1', list.contains(-1));
-console.log('length is ' + list.length())
+console.log(list.back())
+// console.log('contains -1', list.contains(-1));
+// console.log('length is ' + list.length());
+// // .removeFront();
+// // list.head = node;
+// list.display();
+// list.removeFront();
+// console.log(list.front());
+
+// console.log('contains -1', list.contains(-1));
+// console.log('length is ' + list.length())
