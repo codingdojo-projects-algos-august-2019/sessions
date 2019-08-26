@@ -24,17 +24,29 @@ function floodFill(canvas, coord, color) {
     // else{
     //     canvas[coord[0]][coord[1]] = color;
     // }
+    let ogVal=canvas[coord[0]][coord[1]]
+    canvas[coord[0]][coord[1]] = color;
     let newCoord = coord;
     newCoord[1] -= 1;
-    if (canvas[newCoord] == canvas[coord])
-    floodFill(canvas, newCoord, color);
+    if (canvas[newCoord[0]][newCoord[1]] == ogVal){
+        floodFill(canvas, newCoord, color);
+    }
+    newCoord = coord;
     newCoord[1] += 1;
-    floodFill(canvas, newCoord, color);
+    if (canvas[newCoord[0]][newCoord[1]] == ogVal){
+        floodFill(canvas, newCoord, color);
+    }
+    newCoord = coord;
     newCoord[0] += 1;
-    floodFill(canvas, newCoord, color);
-    newCoord[0] -=1;
-    floodFill(canvas, newCoord, color);
-    return left, right, up, down
+    if (canvas[newCoord[0]][newCoord[1]] == ogVal){
+        floodFill(canvas, newCoord, color);
+    }
+    newCoord = coord;
+    newCoord[0] -= 1;
+    if (canvas[newCoord[0]][newCoord[1]] == ogVal){
+        floodFill(canvas, newCoord, color);
+    }
+    return "Finished"
 }
 
 let testCanvas = [[3, 2, 3, 4, 3],
@@ -43,10 +55,10 @@ let testCanvas = [[3, 2, 3, 4, 3],
                   [6, 5, 3, 4, 1], 
                   [1, 2, 3, 3, 3]]
 
-console.log(testCanvas[2][2])
+console.log("************************")
 
-// console.log(floodFill([[3, 2, 3, 4, 3],
-//     [2, 3, 3, 4, 0], 
-//     [7, 3, 3, 5, 3], 
-//     [6, 5, 3, 4, 1], 
-//     [1, 2, 3, 3, 3]], [2,2], 1))
+console.log(floodFill([[3, 2, 3, 4, 3],
+    [2, 3, 3, 4, 0], 
+    [7, 3, 3, 5, 3], 
+    [6, 5, 3, 4, 1], 
+    [1, 2, 3, 3, 3]], [2,2], 1))
