@@ -1,33 +1,57 @@
 function BTNode(value) {
-    this.val = value;
+    this.value = value;
     this.left = null;
     this.right = null;
-}
-function BST() {
-    this.root = null;
-    
-    this.add = function(value, runner){
-        if(this.root == null){
-            this.root = new BTNode(value)
-            return this
-        }
-        else if(runner == null){
-            console.log(runner)
-            runner = new BTNode(value);
-            return this
-        } else {
-            if(value > runner.value){
-                let runner = runner.right
-                this.add(value, runner)
+
+    this.addNode = function (newNode) {
+        if (newNode.value > this.value) {
+            if (this.right == null) {
+                this.right = newNode
             }
-            else if (value <= runner.value){
-                let runner = runner.left
-                this.add(value, runner)
+            else {
+                this.right.addNode(newNode)
+            }
+        }
+        else {
+            if (this.left == null) {
+                this.left = newNode
+            }
+            else {
+                this.left.addNode(newNode)
             }
         }
     }
 }
 
-let searchTree = new BST()
+function BST() {
+    this.root = null;
 
-console.log(searchTree.add(4).add(7))
+    this.add = function (value) {
+        var newNode = new BTNode(value);
+        if (this.root == null) {
+            this.root = newNode;
+        }
+        else {
+            this.root.addNode(newNode)
+        }
+    }
+}
+
+
+function test() {
+    var tree = new BST()
+
+    tree.add(7)
+
+    tree.add(4)
+
+    tree.add(10)
+
+    tree.add(15)
+
+    console.log(tree)
+
+}
+
+
+console.log(test())
